@@ -4,6 +4,8 @@ const navLinks = document.querySelectorAll(".site-nav a");
 const revealItems = document.querySelectorAll(".reveal");
 const contactForm = document.querySelector(".contact-form");
 const formStatus = document.querySelector(".form-status");
+const contactEndpoint =
+  window.location.port === "4173" ? "/api/contact" : "http://127.0.0.1:4173/api/contact";
 
 if (navToggle && siteNav) {
   navToggle.addEventListener("click", () => {
@@ -61,7 +63,7 @@ if (contactForm) {
     }
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(contactEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -94,7 +96,9 @@ if (contactForm) {
       contactForm.reset();
     } catch (error) {
       if (formStatus) {
-        formStatus.textContent = error.message || "Something went wrong while sending your message. Please try again or contact me directly by phone or email.";
+        formStatus.textContent =
+          error.message ||
+          "Something went wrong while sending your message. Please try again or contact me directly by phone or email.";
         formStatus.className = "form-status is-error";
       }
     } finally {

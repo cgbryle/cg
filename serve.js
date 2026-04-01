@@ -70,8 +70,15 @@ function loadEnv(filePath) {
   return result;
 }
 
+function applyCors(res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+}
+
 function sendJson(res, statusCode, payload) {
   const body = JSON.stringify(payload);
+  applyCors(res);
   res.writeHead(statusCode, {
     "Content-Type": "application/json; charset=utf-8",
     "Content-Length": Buffer.byteLength(body),
@@ -181,6 +188,13 @@ async function handleContact(req, res) {
 
 http
   .createServer((req, res) => {
+    if (req.method === "OPTIONS") {
+      applyCors(res);
+      res.writeHead(204);
+      res.end();
+      return;
+    }
+
     if (req.method === "POST" && req.url === "/api/contact") {
       handleContact(req, res);
       return;
