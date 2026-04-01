@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #f3f0eb;
   --surface: rgba(255, 255, 255, 0.72);
   --surface-strong: #ffffff;
@@ -505,7 +505,8 @@ textarea {
 .tag-list li,
 .tag-list span,
 .tool-pills span,
-.contact-points span {
+.contact-points span,
+.contact-points a {
   display: inline-flex;
   align-items: center;
   min-height: 38px;
@@ -664,6 +665,25 @@ textarea {
   resize: vertical;
 }
 
+.form-status {
+  min-height: 24px;
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.form-status.is-pending {
+  color: var(--text-soft);
+}
+
+.form-status.is-success {
+  color: var(--accent);
+}
+
+.form-status.is-error {
+  color: #b42318;
+}
+
 .site-footer {
   display: flex;
   align-items: center;
@@ -801,3 +821,6 @@ textarea {
     transform: none;
   }
 }
+
+
+

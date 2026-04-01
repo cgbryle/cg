@@ -1,0 +1,13 @@
+﻿{
+  "name": "cgportfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio with SMTP contact form",
+  "main": "serve.js",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}

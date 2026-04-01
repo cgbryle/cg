@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -15,6 +15,7 @@
     rel="stylesheet"
   >
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
   <div class="site-shell">
@@ -303,24 +304,34 @@
             <p>If you need help with website updates, WordPress work, SEO improvements, or technical support, I&apos;d be glad to connect.</p>
             <div class="contact-points">
               <span>Cordova, Philippines</span>
+              <a href="tel:09273275221">09273275221</a>
+              <a href="mailto:cgbryle@gmail.com">cgbryle@gmail.com</a>
               <span>Available for freelance and collaborative work</span>
               <span>Portfolio and social links can be added below</span>
             </div>
           </article>
-          <form class="contact-form reveal">
+          <form class="contact-form reveal" id="contact-form">
+            <input type="hidden" name="to_name" value="Ca&ntilde;ete CG Bryle C.">
+            <input type="hidden" name="to_email" value="cgbryle@gmail.com">
+            <input type="hidden" name="source" value="Portfolio Website">
             <label>
               <span>Name</span>
-              <input type="text" name="name" placeholder="Your name" required>
+              <input type="text" name="from_name" placeholder="Your name" required>
             </label>
             <label>
               <span>Email</span>
-              <input type="email" name="email" placeholder="you@example.com" required>
+              <input type="email" name="reply_to" placeholder="you@example.com" required>
+            </label>
+            <label>
+              <span>Subject</span>
+              <input type="text" name="subject" placeholder="Project inquiry" required>
             </label>
             <label>
               <span>Message</span>
               <textarea name="message" rows="5" placeholder="Tell me about your project or inquiry." required></textarea>
             </label>
             <button class="button button-primary" type="submit">Send Message</button>
+            <p class="form-status" aria-live="polite"></p>
           </form>
         </div>
       </section>
@@ -341,3 +352,13 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
