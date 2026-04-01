@@ -76,11 +76,33 @@ New portfolio inquiry from Jane Doe: Project inquiry
 The message body also includes:
 
 - sender name
-n- sender email
+- sender email
 - subject
 - message
 
 ### 5. Deploying later
 
 When you deploy this site, keep the SMTP credentials only on the server. Do not move them back into client-side JavaScript.
+
+
+## Netlify Deployment
+
+If you deploy on Netlify, the contact form must use Netlify environment variables instead of your local `.env` file.
+
+Add these in Netlify:
+
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_SECURE`
+- `SMTP_USER`
+- `SMTP_PASS`
+- `SMTP_FROM_EMAIL`
+- `SMTP_FROM_NAME`
+- `CONTACT_TO_EMAIL`
+
+The deployed site now sends through:
+
+- `/.netlify/functions/contact`
+
+After adding the environment variables in Netlify, redeploy the site.
 

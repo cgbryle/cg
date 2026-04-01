@@ -4,8 +4,14 @@ const navLinks = document.querySelectorAll(".site-nav a");
 const revealItems = document.querySelectorAll(".reveal");
 const contactForm = document.querySelector(".contact-form");
 const formStatus = document.querySelector(".form-status");
-const contactEndpoint =
-  window.location.port === "4173" ? "/api/contact" : "http://127.0.0.1:4173/api/contact";
+
+const isLocalPreview = ["127.0.0.1", "localhost"].includes(window.location.hostname);
+const isNodeServer = window.location.port === "4173";
+const contactEndpoint = isNodeServer
+  ? "/api/contact"
+  : isLocalPreview
+    ? "http://127.0.0.1:4173/api/contact"
+    : "/.netlify/functions/contact";
 
 if (navToggle && siteNav) {
   navToggle.addEventListener("click", () => {
@@ -79,7 +85,9 @@ if (contactForm) {
           result = JSON.parse(responseText);
         } catch {
           throw new Error(
-            "The contact endpoint returned an invalid response. Make sure the site is running with node serve.js instead of a static preview server."
+            isLocalPreview && !isNodeServer
+              ? "The contact endpoint returned an invalid response. Make sure node serve.js is running on port 4173."
+              : "The contact endpoint returned an invalid response."
           );
         }
       }
@@ -107,4 +115,3 @@ if (contactForm) {
     }
   });
 }
-
