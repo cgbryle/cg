@@ -1,0 +1,18 @@
+﻿{
+  "name": "Cañete CG Bryle C. Portfolio",
+  "short_name": "Bryle Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070550",
+  "theme_color": "#070550",
+  "description": "Portfolio website of Cañete CG Bryle C., Web Developer, SEO Specialist, and IT Freelancer.",
+  "lang": "en-PH",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -3,11 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ca&ntilde;ete CG Bryle C. | Web Developer & SEO Specialist</title>
+  <title>Ca&ntilde;ete CG Bryle C. | Web Developer, SEO Specialist & IT Freelancer</title>
   <meta
     name="description"
-    content="Personal portfolio of Ca&ntilde;ete CG Bryle C., a Web Developer, SEO Specialist, and IT Freelancer based in Cordova, Philippines."
+    content="Official portfolio of Ca&ntilde;ete CG Bryle C., a Web Developer, SEO Specialist, WordPress manager, and IT Freelancer based in Cordova, Philippines. Explore services, skills, experience, and client work."
   >
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Ca&ntilde;ete CG Bryle C.">
+  <meta name="keywords" content="Ca&ntilde;ete CG Bryle C., Bryle Canete, Web Developer Philippines, SEO Specialist Philippines, WordPress Developer, Full Stack Developer, IT Freelancer, Cordova Cebu web developer, portfolio website">
+  <meta name="theme-color" content="#101010">
+  <meta name="application-name" content="Ca&ntilde;ete CG Bryle C. Portfolio">
+  <meta name="geo.region" content="PH-CEB">
+  <meta name="geo.placename" content="Cordova, Cebu, Philippines">
+  <meta name="format-detection" content="telephone=no, address=no, email=no">
+  <link rel="canonical" href="https://cgbryle.netlify.app/">
+  <link rel="alternate" hreflang="en-PH" href="https://cgbryle.netlify.app/">
+  <link rel="alternate" hreflang="x-default" href="https://cgbryle.netlify.app/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:locale" content="en_PH">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ca&ntilde;ete CG Bryle C. | Web Developer, SEO Specialist & IT Freelancer">
+  <meta property="og:description" content="Official portfolio of Ca&ntilde;ete CG Bryle C. showcasing web development, SEO, WordPress, and freelance IT services.">
+  <meta property="og:url" content="https://cgbryle.netlify.app/">
+  <meta property="og:site_name" content="Ca&ntilde;ete CG Bryle C. Portfolio">
+  <meta property="og:image" content="https://cgbryle.netlify.app/social-preview.svg">
+  <meta property="og:image:alt" content="CG logo and personal brand preview for Ca&ntilde;ete CG Bryle C.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ca&ntilde;ete CG Bryle C. | Web Developer, SEO Specialist & IT Freelancer">
+  <meta name="twitter:description" content="Explore the portfolio, skills, and client work of Ca&ntilde;ete CG Bryle C., a web developer and SEO specialist based in the Philippines.">
+  <meta name="twitter:image" content="https://cgbryle.netlify.app/social-preview.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://cgbryle.netlify.app/#website",
+          "url": "https://cgbryle.netlify.app/",
+          "name": "Ca&ntilde;ete CG Bryle C. Portfolio",
+          "description": "Personal portfolio of Ca&ntilde;ete CG Bryle C., Web Developer, SEO Specialist, and IT Freelancer.",
+          "inLanguage": "en-PH"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://cgbryle.netlify.app/#person",
+          "name": "Ca&ntilde;ete CG Bryle C.",
+          "jobTitle": ["Web Developer", "SEO Specialist", "IT Freelancer"],
+          "url": "https://cgbryle.netlify.app/",
+          "image": "https://cgbryle.netlify.app/social-preview.svg",
+          "email": "mailto:cgbryle@gmail.com",
+          "telephone": "+63 927 327 5221",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cordova",
+            "addressRegion": "Cebu",
+            "addressCountry": "PH"
+          },
+          "knowsAbout": [
+            "Web Development",
+            "SEO",
+            "WordPress",
+            "React.js",
+            "Node.js",
+            "TypeScript",
+            "MySQL",
+            "MongoDB"
+          ],
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Joyno Media"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://cgbryle.netlify.app/#website"
+          }
+        }
+      ]
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -15,13 +90,15 @@
     rel="stylesheet"
   >
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 </head>
 <body>
   <div class="site-shell">
     <header class="topbar">
-      <a class="brand" href="#hero">
-        <span class="brand-mark">BC</span>
+      <a class="brand" href="#hero" aria-label="Go to homepage">
+        <span class="brand-mark">
+          <img src="logo.svg" alt="CG Bryle logo" width="48" height="48">
+        </span>
         <span class="brand-text">
           <strong>Ca&ntilde;ete CG Bryle C.</strong>
           <small>Web Developer | SEO Specialist</small>
@@ -31,7 +108,7 @@
         <span></span>
         <span></span>
       </button>
-      <nav class="site-nav" id="site-nav">
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
@@ -40,7 +117,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero section" id="hero">
         <div class="hero-copy reveal">
           <p class="eyebrow">Cordova, Philippines</p>
@@ -75,6 +152,10 @@
                 class="portrait-image"
                 src="profile.png"
                 alt="Portrait of Ca&ntilde;ete CG Bryle C."
+                width="403"
+                height="501"
+                fetchpriority="high"
+                decoding="async"
               >
             </div>
             <div class="floating-panel">
@@ -230,7 +311,7 @@
         </div>
         <div class="project-grid">
           <article class="project-card reveal">
-            <img class="project-image" src="project-cebu-travels.png" alt="Cebu Travels and Oslob Tours website preview">
+            <img class="project-image" src="project-cebu-travels.png" alt="Cebu Travels and Oslob Tours website preview" loading="lazy" decoding="async">
             <div class="project-number">01</div>
             <h3>Cebu Travels &amp; Oslob Tours</h3>
             <p>Developed a polished tourism landing page with a strong hero section, clear navigation, and conversion-focused inquiry flow for travel bookings.</p>
@@ -238,7 +319,7 @@
             <a class="text-link" href="https://cebutravelsandoslobtours.com/" target="_blank" rel="noreferrer">View Project</a>
           </article>
           <article class="project-card reveal">
-            <img class="project-image" src="project-our-stories.png" alt="Our Stories Travel and Tours Boracay website preview">
+            <img class="project-image" src="project-our-stories.png" alt="Our Stories Travel and Tours Boracay website preview" loading="lazy" decoding="async">
             <div class="project-number">02</div>
             <h3>Our Stories Travel &amp; Tours</h3>
             <p>Created a vibrant Boracay travel site experience with destination-led visuals, clean calls to action, and a layout built to support tour promotion.</p>
@@ -246,7 +327,7 @@
             <a class="text-link" href="https://ourstoriestravelandtours.com/" target="_blank" rel="noreferrer">View Project</a>
           </article>
           <article class="project-card reveal">
-            <img class="project-image" src="project-mangroves.png" alt="Mangroves Cafe and Restaurant website preview">
+            <img class="project-image" src="project-mangroves.png" alt="Mangroves Cafe and Restaurant website preview" loading="lazy" decoding="async">
             <div class="project-number">03</div>
             <h3>Mangroves Cafe &amp; Restaurant</h3>
             <p>Designed a restaurant website that highlights menu appeal, local identity, and social touchpoints while maintaining a clean browsing experience.</p>
@@ -254,7 +335,7 @@
             <a class="text-link" href="https://mangrovescafeandresto.com/" target="_blank" rel="noreferrer">View Project</a>
           </article>
           <article class="project-card reveal">
-            <img class="project-image" src="project-ahhhi.png" alt="AHHHI wellness website preview">
+            <img class="project-image" src="project-ahhhi.png" alt="AHHHI wellness website preview" loading="lazy" decoding="async">
             <div class="project-number">04</div>
             <h3>AHHHI Wellness Brand Website</h3>
             <p>Built a premium wellness homepage with structured content, elegant visual balance, and a stronger digital presence for professional care services.</p>
@@ -262,7 +343,7 @@
             <a class="text-link" href="https://ahhhph.com/" target="_blank" rel="noreferrer">View Project</a>
           </article>
           <article class="project-card reveal">
-            <img class="project-image" src="project-lamyani.png" alt="Lamyani food website preview">
+            <img class="project-image" src="project-lamyani.png" alt="Lamyani food website preview" loading="lazy" decoding="async">
             <div class="project-number">05</div>
             <h3>Lamyani Food Corp</h3>
             <p>Produced a bold food-brand homepage focused on appetite appeal, product promotion, and strong call-to-action sections for customer engagement.</p>
@@ -270,7 +351,7 @@
             <a class="text-link" href="https://lamyani.com/" target="_blank" rel="noreferrer">View Project</a>
           </article>
           <article class="project-card reveal">
-            <img class="project-image" src="project-stuffed-fried.png" alt="Stuffed N Fried website preview">
+            <img class="project-image" src="project-stuffed-fried.png" alt="Stuffed N Fried website preview" loading="lazy" decoding="async">
             <div class="project-number">06</div>
             <h3>Stuffed N&apos; Fried</h3>
             <p>Developed a high-energy food website concept with standout hero messaging, local business information, and a layout tailored for quick ordering interest.</p>
@@ -352,6 +433,13 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 

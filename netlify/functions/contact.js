@@ -1,29 +1,5 @@
 ﻿const nodemailer = require("nodemailer");
 
-const smtpConfig = {
-  host: process.env.SMTP_HOST || "",
-  port: Number(process.env.SMTP_PORT || 587),
-  secure: String(process.env.SMTP_SECURE || "false").toLowerCase() === "true",
-  user: process.env.SMTP_USER || "",
-  pass: process.env.SMTP_PASS || "",
-  fromEmail: process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER || "",
-  fromName: process.env.SMTP_FROM_NAME || "Portfolio Contact Form",
-  toEmail: process.env.CONTACT_TO_EMAIL || "cgbryle@gmail.com",
-};
-
-let transporter = null;
-if (smtpConfig.host && smtpConfig.user && smtpConfig.pass) {
-  transporter = nodemailer.createTransport({
-    host: smtpConfig.host,
-    port: smtpConfig.port,
-    secure: smtpConfig.secure,
-    auth: {
-      user: smtpConfig.user,
-      pass: smtpConfig.pass,
-    },
-  });
-}
-
 function json(statusCode, payload) {
   return {
     statusCode,
@@ -55,9 +31,25 @@ exports.handler = async (event) => {
     return json(405, { message: "Method Not Allowed" });
   }
 
-  if (!transporter) {
+  const smtpConfig = {
+    host: process.env.SMTP_HOST || "",
+    port: Number(process.env.SMTP_PORT || 587),
+    secure: String(process.env.SMTP_SECURE || "false").toLowerCase() === "true",
+    user: process.env.SMTP_USER || "",
+    pass: process.env.SMTP_PASS || "",
+    fromEmail: process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER || "",
+    fromName: process.env.SMTP_FROM_NAME || "Portfolio Contact Form",
+    toEmail: process.env.CONTACT_TO_EMAIL || "cgbryle@gmail.com",
+  };
+
+  if (!smtpConfig.host || !smtpConfig.user || !smtpConfig.pass) {
     return json(500, {
       message: "SMTP is not configured in Netlify environment variables yet.",
+      debug: {
+        hasSMTP_HOST: Boolean(process.env.SMTP_HOST),
+        hasSMTP_USER: Boolean(process.env.SMTP_USER),
+        hasSMTP_PASS: Boolean(process.env.SMTP_PASS),
+      },
     });
   }
 
@@ -74,6 +66,16 @@ exports.handler = async (event) => {
         message: "Please complete your name, email, and message.",
       });
     }
+
+    const transporter = nodemailer.createTransport({
+      host: smtpConfig.host,
+      port: smtpConfig.port,
+      secure: smtpConfig.secure,
+      auth: {
+        user: smtpConfig.user,
+        pass: smtpConfig.pass,
+      },
+    });
 
     const mailSubject = `New portfolio inquiry from ${fromName}: ${subject}`;
     const text = [
@@ -110,7 +112,9 @@ exports.handler = async (event) => {
     return json(200, { message: "Message sent successfully." });
   } catch (error) {
     return json(500, {
-      message: "Unable to send your message right now. Please try again later or contact me directly.",
+      message: error && error.message
+        ? `Mail send failed: ${error.message}`
+        : "Unable to send your message right now. Please try again later or contact me directly.",
     });
   }
 };
